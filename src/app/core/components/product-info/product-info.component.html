@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+
+    <ng-template [ngIf]="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img [src]="product.imagelink" [title]="product.title" alt="{{ product.imagelink }}">
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div>{{ product.description }}</div>
+                        <div><h2>Preço R$ {{ product.price }}</h2></div>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+</body>
+</html>

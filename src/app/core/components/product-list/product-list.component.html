@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+
+
+    <div class="form-group">
+
+        <div class="container">
+            <label class="col-sm-2 col-form-label">O que voce procura</label>
+            <div class="row">
+                <div class="col-sm-4">
+                    <input [(ngModel)]="search" class="form-control">
+                </div>
+                <div class="col-sm-2">
+                    <button (click)="pesquisarProduto()" class="btn btn-primary">Pesquisar</button>
+                </div>
+                <div class="col-sm-4">
+                    <div> {{ products.length }} produto(s) encontrado(s)</div>
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+
+    <div class="container">
+        <div class="row align-items-start align-self-start">
+            <ng-template ngFor let-prod [ngForOf]="products" let-idx="index">
+            <div class="col-sm-3">
+                <a [routerLink]="['/product/', prod.id]">
+                    <div><img [src]="prod.imagelink" [title]="prod.title" alt="{{ prod.imagelink }}" width="200px"></div>
+                    <div>{{ prod.title }}</div>
+                    <div><h2>Preço R$ {{ prod.price }}</h2></div>
+                </a>
+            </div>
+            </ng-template>
+        </div>
+    </div>
+
+</body>
+</html>
